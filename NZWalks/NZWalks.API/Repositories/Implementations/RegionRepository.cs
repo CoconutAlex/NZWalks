@@ -1,8 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using NZWalks.API.Data;
 using NZWalks.API.Models.Domain;
+using NZWalks.API.Repositories.Interfaces;
 
-namespace NZWalks.API.Repositories
+namespace NZWalks.API.Repositories.Implementations
 {
     public class RegionRepository : IRegionRepository
     {
@@ -62,7 +63,7 @@ namespace NZWalks.API.Repositories
             existingRegion.Population = region.Population;
 
             await nZWalksDbContext.SaveChangesAsync();
-            
+
             return existingRegion;
         }
     }

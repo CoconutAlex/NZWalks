@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
-using NZWalks.API.Repositories;
+using NZWalks.API.Repositories.Interfaces;
 
 namespace NZWalks.API.Controllers
 {
@@ -66,6 +66,7 @@ namespace NZWalks.API.Controllers
             }
 
             var regionDTO = mapper.Map<Models.DTO.Region>(region);
+
             return Ok(regionDTO);
         }
 
@@ -74,7 +75,7 @@ namespace NZWalks.API.Controllers
         #region Add Region
 
         [HttpPost]
-        public async Task<IActionResult> AddRegionAsync(Models.DTO.AddRegionRequest addRegionRequest)
+        public async Task<IActionResult> AddRegionAsync(Models.DTO.Requests.Regions.AddRegionRequest addRegionRequest)
         {
             //Request to Domain Model
             var request = new Models.Domain.Region
@@ -121,7 +122,7 @@ namespace NZWalks.API.Controllers
 
         [HttpPut]
         [Route("{id:guid}")]
-        public async Task<IActionResult> UpdateRegionAsync([FromRoute] Guid id, [FromBody] Models.DTO.UpdateRegionRequest updateRegionRequest)
+        public async Task<IActionResult> UpdateRegionAsync([FromRoute] Guid id, [FromBody] Models.DTO.Requests.Regions.UpdateRegionRequest updateRegionRequest)
         {
             var request = new Models.Domain.Region()
             {
