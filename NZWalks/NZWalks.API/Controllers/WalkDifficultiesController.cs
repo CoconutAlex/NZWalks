@@ -1,7 +1,5 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
-using NZWalks.API.Models.DTO.Requests.WalkDifficulties;
-using NZWalks.API.Repositories.Implementations;
 using NZWalks.API.Repositories.Interfaces;
 
 namespace NZWalks.API.Controllers
@@ -56,10 +54,10 @@ namespace NZWalks.API.Controllers
         public async Task<IActionResult> AddWalkDifficulty(Models.DTO.Requests.WalkDifficulties.AddWalkDifficultyRequest walkDifficultyRequest)
         {
             //Validate Request
-            if (!ValidatAddWalkDifficultyAsync(walkDifficultyRequest))
-            {
-                return BadRequest(ModelState);
-            }
+            //if (!ValidatAddWalkDifficultyAsync(walkDifficultyRequest))
+            //{
+            //    return BadRequest(ModelState);
+            //}
 
             var request = new Models.Domain.WalkDifficulty()
             {
@@ -101,10 +99,10 @@ namespace NZWalks.API.Controllers
         public async Task<IActionResult> UpdateWalkDifficulty([FromRoute] Guid id, [FromBody] Models.DTO.Requests.WalkDifficulties.UpdateWalkDifficultyRequest updateWalkDifficultyRequest)
         {
             //Validate Request
-            if (!ValidatUpdateWalkDifficultyAsync(updateWalkDifficultyRequest))
-            {
-                return BadRequest(ModelState);
-            }
+            //if (!ValidatUpdateWalkDifficultyAsync(updateWalkDifficultyRequest))
+            //{
+            //    return BadRequest(ModelState);
+            //}
 
             var request = new Models.Domain.WalkDifficulty()
             {

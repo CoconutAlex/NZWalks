@@ -1,6 +1,5 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
-using NZWalks.API.Models.DTO.Requests.Walks;
 using NZWalks.API.Repositories.Interfaces;
 
 namespace NZWalks.API.Controllers
@@ -139,23 +138,23 @@ namespace NZWalks.API.Controllers
 
         private async Task<bool> ValidatAddWalkAsync(Models.DTO.Requests.Walks.AddWalkRequest addWalkRequest)
         {
-            if (addWalkRequest == null)
-            {
-                ModelState.AddModelError(nameof(addWalkRequest),
-                    $"Add Walk Data is required.");
+            //if (addWalkRequest == null)
+            //{
+            //    ModelState.AddModelError(nameof(addWalkRequest),
+            //        $"Add Walk Data is required.");
 
-                return false;
-            }
-            if (string.IsNullOrWhiteSpace(addWalkRequest.Name))
-            {
-                ModelState.AddModelError(nameof(addWalkRequest.Name),
-                    $"{nameof(addWalkRequest.Name)} cannot be null or empty or white space.");
-            }
-            if (addWalkRequest.Length <= 0)
-            {
-                ModelState.AddModelError(nameof(addWalkRequest.Length),
-                    $"{nameof(addWalkRequest.Length)} should be greater than zero.");
-            }
+            //    return false;
+            //}
+            //if (string.IsNullOrWhiteSpace(addWalkRequest.Name))
+            //{
+            //    ModelState.AddModelError(nameof(addWalkRequest.Name),
+            //        $"{nameof(addWalkRequest.Name)} cannot be null or empty or white space.");
+            //}
+            //if (addWalkRequest.Length <= 0)
+            //{
+            //    ModelState.AddModelError(nameof(addWalkRequest.Length),
+            //        $"{nameof(addWalkRequest.Length)} should be greater than zero.");
+            //}
 
             var region = await regionRepository.GetAsync(addWalkRequest.RegionId);
             if (region == null)
@@ -181,23 +180,23 @@ namespace NZWalks.API.Controllers
 
         private async Task<bool> ValidatUpdateWalkAsync(Models.DTO.Requests.Walks.UpdateWalkRequest updateWalkRequest)
         {
-            if (updateWalkRequest == null)
-            {
-                ModelState.AddModelError(nameof(updateWalkRequest),
-                    $"Add Walk Data is required.");
+            //if (updateWalkRequest == null)
+            //{
+            //    ModelState.AddModelError(nameof(updateWalkRequest),
+            //        $"Add Walk Data is required.");
 
-                return false;
-            }
-            if (string.IsNullOrWhiteSpace(updateWalkRequest.Name))
-            {
-                ModelState.AddModelError(nameof(updateWalkRequest.Name),
-                    $"{nameof(updateWalkRequest.Name)} cannot be null or empty or white space.");
-            }
-            if (updateWalkRequest.Length <= 0)
-            {
-                ModelState.AddModelError(nameof(updateWalkRequest.Length),
-                    $"{nameof(updateWalkRequest.Length)} should be greater than zero.");
-            }
+            //    return false;
+            //}
+            //if (string.IsNullOrWhiteSpace(updateWalkRequest.Name))
+            //{
+            //    ModelState.AddModelError(nameof(updateWalkRequest.Name),
+            //        $"{nameof(updateWalkRequest.Name)} cannot be null or empty or white space.");
+            //}
+            //if (updateWalkRequest.Length <= 0)
+            //{
+            //    ModelState.AddModelError(nameof(updateWalkRequest.Length),
+            //        $"{nameof(updateWalkRequest.Length)} should be greater than zero.");
+            //}
 
             var region = await regionRepository.GetAsync(updateWalkRequest.RegionId);
             if (region == null)
